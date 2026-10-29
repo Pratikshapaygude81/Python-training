@@ -1066,36 +1066,3 @@ else:
 No marks available
 ```
 
-## 14. Practice Exercises
-
-Solve the following exercises yourself.
-
-### Part A: Dictionary Basics
-
-1. Create a dictionary containing your name, age, city, and course.
-2. Print only the keys of a dictionary.
-3. Print only the values of a dictionary.
-4. Add an `"email"` key to a student dictionary.
-5. Update the age of a student.
-6. Remove a key using `pop()`.
-7. Check whether `"marks"` exists in a dictionary.
-8. Access a missing key safely using `get()`.
-9. Create a dictionary using the `dict()` function.
-10. Copy a dictionary and update a value in the copy.
-
-### Part B: Loops and Dictionaries
-
-11. Print every key and value using `items()`.
-12. Calculate the total of all values in a marks dictionary.
-13. Calculate the average of the marks.
-14. Find the student with the highest marks.
-15. Count how many students passed.
-16. Separate students into passed and failed dictionaries.
-17. Count the frequency of each character in `"programming"`.
-18. Count the frequency of numbers in `[1, 2, 2, 3, 3, 3, 4]`.
-19. Create a dictionary by matching two lists.
-20. Find duplicate values in a list using a dictionary.
-
-### Part C: Nested Dictionaries
-
-21. Create a
