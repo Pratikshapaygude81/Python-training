@@ -446,10 +446,3 @@ Python searches for the module, initializes it, executes its top-level code on i
 | `pip` | Python package installer |
 | `sys.modules` | Keeps track of imported modules |
 
-##  References
-
-1. Python Official Tutorial – Modules: https://docs.python.org/3/tutorial/modules.html
-2. Python Official Documentation – `__main__`: https://docs.python.org/3/library/__main__.html
-3. Python Official Documentation – The Import System: https://docs.python.org/3/reference/import.html
-4. Python Official Documentation – `sys.modules`: https://docs.python.org/3/library/sys.html
-5. Python Packaging User Guide – Installing Packages: https://packaging.python.org/en/latest/tutorials/installing-packages/
