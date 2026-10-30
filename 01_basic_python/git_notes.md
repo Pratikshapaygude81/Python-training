@@ -1,4 +1,4 @@
-
+**Resources :- Chatgpt,https://docs.github.com/en/get-started/using-git/about-git?utm_source,https://learn.github.com/skills**
 # Git and GitHub – Beginner Notes
 
 ## 1. What is Git?
