@@ -1,75 +1,28 @@
+##  References
 
-# Python Modules – Complete Notes
+1. Python Official Tutorial – Modules: https://docs.python.org/3/tutorial/modules.html
+2. Python Official Documentation – `__main__`: https://docs.python.org/3/library/__main__.html
+3. Python Official Documentation – The Import System: https://docs.python.org/3/reference/import.html
+4. Python Official Documentation – `sys.modules`: https://docs.python.org/3/library/sys.html
+5. Python Packaging User Guide – Installing Packages: https://packaging.python.org/en/latest/tutorials/installing-packages/
+
+# Python Modules
 
 ## 1. What is a Module?
 
-A module in Python is a file containing Python code such as variables, functions, and classes that can be reused in other Python programs.
+A module is a Python file containing definitions and statements.
 
-Modules help us:
-- Organize code into separate files.
-- Reuse code instead of writing it again.
-- Make programs easier to maintain.
-- Keep large projects organized.
+It can contain:
+- Variables
+- Functions
+- Classes
+- Executable statements
 
-**Example:**
-
-Suppose we have two Python files:
-
-```text
-project/
-    calculator.py
-    main.py
-```
-
-`calculator.py` contains reusable functions, and `main.py` imports and uses them.
-
----
-
-## 2. Types of Python Modules
-
-Python modules are mainly classified into three types:
-
-### A. Built-in Modules
-
-These modules are already provided by Python. We can directly import and use them.
-
-Examples:
-
-| Module | Purpose |
-|---|---|
-| math | Mathematical operations |
-| random | Generate random values |
-| os | Interact with the operating system |
-| datetime | Work with dates and times |
-| sys | Access Python interpreter information |
-| json | Work with JSON data |
-| statistics | Perform statistical calculations |
-
-**Example using math module:**
-
-```python
-import math
-
-print(math.sqrt(25))
-print(math.factorial(5))
-print(math.pi)
-```
-
-Output:
-
-```text
-5.0
-120
-3.141592653589793
-```
-
-### B. User-Defined Modules
-
-A user-defined module is a Python file created by a programmer to store reusable code.
+Modules help us divide a large program into smaller, manageable files. We can reuse code from one module in another program using the `import` statement.
 
 **Example:**
 
-File 1: `calculator.py`
+Create a file named `calculator.py`:
 
 ```python
 def add(a, b):
@@ -79,487 +32,424 @@ def subtract(a, b):
     return a - b
 ```
 
-File 2: `main.py`
+This file is a module named `calculator`.
 
-```python
-import calculator
+## 2. Why Do We Use Modules?
 
-print(calculator.add(10, 5))
-print(calculator.subtract(10, 5))
-```
+Modules are useful because they:
 
-Output:
+1. Make programs easier to organize.
+2. Allow code reuse.
+3. Make large programs easier to maintain.
+4. Avoid writing the same code repeatedly.
+5. Help divide a project into separate files.
 
-```text
-15
-5
-```
+## 3. Importing a Module
 
-Here, `calculator.py` is a user-defined module.
+We use the `import` statement to access another module.
 
-### C. Third-Party Modules
-
-These modules are developed by external developers or organizations. They are not included in the standard Python installation and may need to be installed separately.
-
-Examples:
-
-| Module | Purpose |
-|---|---|
-| numpy | Numerical calculations |
-| pandas | Data manipulation and analysis |
-| requests | Making HTTP requests |
-| matplotlib | Data visualization |
-| flask | Web application development |
-| django | Web application development |
-
-**Installation example:**
-
-```bash
-pip install pandas
-```
-
-**Usage:**
-
-```python
-import pandas as pd
-
-data = [10, 20, 30]
-
-series = pd.Series(data)
-
-print(series)
-```
-
----
-
-## 3. Different Ways to Import Modules
-
-### A. Import the Complete Module
-
-Syntax:
+**Syntax:**
 
 ```python
 import module_name
 ```
 
-Example:
+**Example:**
+
+```python
+import calculator
+
+result = calculator.add(10, 20)
+
+print(result)
+```
+
+**Output:**
+```text
+30
+```
+
+Here, `calculator` is the module name and `add()` is the function defined inside it.
+
+We access the function using:
+
+```python
+module_name.function_name()
+```
+
+## 4. Different Ways to Import Modules
+
+### A. Import the complete module
 
 ```python
 import math
 
-print(math.sqrt(36))
+print(math.sqrt(25))
 ```
 
 Output:
-
 ```text
-6.0
+5.0
 ```
 
-We use the module name followed by a dot to access its functions.
-
-### B. Import a Specific Function
-
-Syntax:
-
-```python
-from module_name import function_name
-```
-
-Example:
+### B. Import a specific function
 
 ```python
 from math import sqrt
 
-print(sqrt(49))
+print(sqrt(25))
 ```
 
 Output:
-
 ```text
-7.0
+5.0
 ```
 
-We can directly use `sqrt()` without writing `math.sqrt()`.
+We can use `sqrt()` directly without writing `math.sqrt()`.
 
-### C. Import Multiple Functions
+### C. Import multiple functions
 
 ```python
 from math import sqrt, factorial
 
-print(sqrt(64))
+print(sqrt(36))
 print(factorial(5))
 ```
 
-### D. Import Using an Alias
+### D. Import using an alias
 
-An alias is an alternative name given to a module or function.
-
-Syntax:
-
-```python
-import module_name as alias
-```
-
-Example:
+We can give a module or imported function a shorter name using `as`.
 
 ```python
 import math as m
 
-print(m.sqrt(81))
+print(m.sqrt(49))
 ```
 
 Output:
-
 ```text
-9.0
+7.0
 ```
 
-Another example:
+We can also give an imported function an alias:
 
 ```python
-import pandas as pd
+from math import factorial as fact
+
+print(fact(5))
 ```
 
-Here, `pd` is the commonly used alias for pandas.
+Output:
+```text
+120
+```
 
-### E. Import All Functions
+### E. Import all names
 
 ```python
 from math import *
-
-print(sqrt(25))
-print(factorial(5))
 ```
 
-This imports all public names from the module.
+This imports names exposed by the module.
 
-**Note:** Using `from module import *` is generally discouraged because it can create naming conflicts and make code difficult to understand.
+However, importing everything is generally discouraged because it can make code harder to understand and may cause naming conflicts.
 
----
+## 5. Built-in and Standard Library Modules
 
-## 4. The dir() Function
+Python provides many modules that we can use without installing additional packages.
 
-The `dir()` function displays the names available in a module or object.
+Examples include:
 
-Example:
+| Module | Purpose |
+|---|---|
+| `math` | Mathematical operations |
+| `random` | Generate random values |
+| `datetime` | Work with dates and times |
+| `os` | Interact with the operating system |
+| `sys` | Access interpreter-related information |
+| `statistics` | Perform statistical calculations |
+
+**Example using the random module:**
 
 ```python
-import math
+import random
 
-print(dir(math))
+number = random.randint(1, 10)
+
+print(number)
 ```
 
-It displays the available functions, constants, and other attributes of the math module.
+This generates a random integer between 1 and 10, inclusive.
 
----
+**Note:** These are commonly called standard library modules. They are provided with Python, unlike third-party packages that generally need to be installed separately.
 
-## 5. The help() Function
+## 6. User-Defined Modules
 
-The `help()` function provides documentation about a module, function, or object.
-
-Example:
-
-```python
-import math
-
-help(math)
-```
-
-For a specific function:
-
-```python
-help(math.sqrt)
-```
-
----
-
-## 6. The __name__ Variable
-
-Every Python module has a special variable called `__name__`.
-
-When a Python file is executed directly, its `__name__` value is:
-
-```python
-"__main__"
-```
-
-When the file is imported into another module, its `__name__` is usually its module name.
+A user-defined module is a Python file created by the programmer to organize reusable code.
 
 **Example:**
 
-File: `calculator.py`
+File 1: `greetings.py`
+
+```python
+def welcome(name):
+    print("Welcome", name)
+```
+
+File 2: `main.py`
+
+```python
+import greetings
+
+greetings.welcome("Pratiksha")
+```
+
+Output:
+```text
+Welcome Pratiksha
+```
+
+Both files should be in a location where Python can find the module.
+
+## 7. The `__name__` Variable
+
+Every Python module has a special variable called `__name__`.
+
+Its value depends on how the module is used.
+
+- When a module is imported, `__name__` normally contains the module's name.
+- When a file is executed as the top-level program, its `__name__` is set to `"__main__"`.
+
+**Example:**
+
+```python
+print(__name__)
+```
+
+When you execute this file directly:
+
+```text
+__main__
+```
+
+When the file is imported as a module, its `__name__` will normally be its module name.
+
+## 8. The `if __name__ == "__main__"` Condition
+
+This condition is used to ensure that certain code runs only when a Python file is executed directly, rather than when it is imported.
+
+**Example:**
 
 ```python
 def add(a, b):
     return a + b
 
-print(__name__)
-
 if __name__ == "__main__":
     print(add(10, 20))
 ```
 
-If we run `calculator.py` directly, output:
+Output when executed directly:
 
 ```text
-__main__
 30
 ```
 
-If another file imports it:
+If another file imports this module, the function is available, but the `print()` statement inside the condition does not run.
+
+**Why is it useful?**
+
+- It separates reusable code from program execution.
+- It prevents certain statements from running during import.
+- It allows the same file to be used as a script and as a module.
+
+## 9. What Happens When We Import a Module?
+
+When Python imports a module:
+
+1. Python searches for the requested module.
+2. If it finds the module, it creates and initializes a module object.
+3. The module's top-level statements are executed during its first import.
+4. Python makes the module available to the importing code.
+
+Python generally imports a module only once per interpreter session. It keeps track of imported modules in `sys.modules`.
+
+If you modify a module while the interpreter is running, you may need to restart the interpreter or explicitly reload the module using `importlib.reload()`.
+
+**Example:**
 
 ```python
-import calculator
+import math
+import sys
+
+print("math" in sys.modules)
 ```
 
-The module's `__name__` is `calculator`, so the code inside the `if` block does not execute.
-
-**Why do we use it?**
-
-- To prevent certain code from running when a module is imported.
-- To separate reusable code from testing or execution code.
-- To control the starting point of a Python program.
-
----
-
-## 7. Difference Between Module, Package and Library
-
-| Term | Meaning | Example |
-|---|---|---|
-| Module | A Python file containing reusable code | math.py |
-| Package | A collection of related Python modules | A package containing several modules |
-| Library | A collection of reusable code and packages | NumPy, Pandas |
-
-### Module example
-
+Output:
 ```text
-calculator.py
+True
 ```
 
-### Package example
+## 10. Packages in Python
+
+A package is a way to organize related Python modules into a hierarchical structure.
+
+Think of it this way:
+
+- Module = Python file
+- Package = A structure that organizes modules
+
+**Example folder structure:**
 
 ```text
 mypackage/
     __init__.py
-    addition.py
-    subtraction.py
-```
-
-A package helps organize related modules.
-
----
-
-## 8. What is pip?
-
-Pip is Python's package installer. It is used to install and manage third-party packages.
-
-### Check pip version
-
-```bash
-pip --version
-```
-
-### Install a package
-
-```bash
-pip install requests
-```
-
-### Install a specific version
-
-```bash
-pip install requests==2.32.3
-```
-
-### Upgrade a package
-
-```bash
-pip install --upgrade requests
-```
-
-### Uninstall a package
-
-```bash
-pip uninstall requests
-```
-
-### List installed packages
-
-```bash
-pip list
-```
-
-### Display package details
-
-```bash
-pip show requests
-```
-
----
-
-## 9. What is __pycache__?
-
-When Python imports a module, it may generate compiled bytecode files to help Python load the module more efficiently.
-
-These files are commonly stored in a folder named:
-
-```text
-__pycache__/
-```
-
-Example:
-
-```text
-project/
     calculator.py
-    __pycache__/
-        calculator.cpython-312.pyc
+    greetings.py
 ```
 
-The `.pyc` file contains compiled Python bytecode.
+Here:
+- `mypackage` is a package.
+- `calculator.py` is a module.
+- `greetings.py` is another module.
+- `__init__.py` is commonly used to mark a regular package and can contain package initialization code.
 
-We generally do not need to create or manage this folder manually.
+Modern Python also supports namespace packages, which do not require an `__init__.py` file.
 
----
-
-## 10. Advantages of Modules
-
-1. Code reusability – Write code once and use it in multiple files.
-2. Better organization – Divide a large program into smaller files.
-3. Easy maintenance – Changes can be made in individual modules.
-4. Readability – Makes code easier to understand.
-5. Less duplication – Avoid writing the same code repeatedly.
-6. Collaboration – Different developers can work on different modules.
-
----
-
-## 11. Important Interview Questions
-
-### Q1. What is a module in Python?
-
-A module is a Python file containing reusable code such as functions, variables, and classes.
-
-### Q2. What are the types of Python modules?
-
-There are three main types:
-- Built-in modules
-- User-defined modules
-- Third-party modules
-
-### Q3. What is the difference between import and from import?
-
-`import math` imports the complete module, and we access functions using `math.sqrt()`.
-
-`from math import sqrt` imports only the specified function, and we can directly use `sqrt()`.
-
-### Q4. What is an alias in Python?
-
-An alias is an alternative name given to a module or function using the `as` keyword.
-
-Example:
+### Importing from a package
 
 ```python
-import numpy as np
+from mypackage import calculator
+
+print(calculator.add(10, 20))
 ```
 
-### Q5. What is pip?
+## 11. Relative and Absolute Imports
 
-Pip is Python's package installer used to install, upgrade, and uninstall third-party packages.
+Python supports two common ways to refer to modules inside packages.
 
-### Q6. What is the difference between a module and a package?
+**Absolute import:**
 
-A module is a single Python file, whereas a package organizes multiple related modules.
+```python
+from mypackage import calculator
+```
 
-### Q7. What is the purpose of __name__ == "__main__"?
+This uses the full package path.
 
-It checks whether a Python file is being executed directly. It helps prevent certain code from running when the file is imported.
+**Relative import:**
 
-### Q8. What is the purpose of dir()?
+```python
+from . import calculator
+```
 
-It displays the available names and attributes of a module or object.
+A single dot refers to the current package. Two dots can refer to the parent package.
 
-### Q9. What is the purpose of help()?
+Relative imports are useful when working with modules inside a package.
 
-It displays documentation and information about modules, functions, and objects.
+## 12. Third-Party Modules and Packages
 
-### Q10. Can we create our own modules?
+Third-party packages are developed outside the Python standard library.
 
-Yes. We can create a Python file containing functions, variables, or classes and import it into another Python file.
+They are often installed using `pip`.
 
----
+Examples:
 
-## 12. Practical Programs
+| Package | Purpose |
+|---|---|
+| NumPy | Numerical computing |
+| Pandas | Data analysis |
+| Django | Web development |
+| Flask | Web application development |
+| Requests | Making HTTP requests |
 
-### Program 1: Calculate Square Root Using math
+**Install a package:**
+
+```bash
+pip install numpy
+```
+
+**Use the package:**
+
+```python
+import numpy
+
+print(numpy.array([10, 20, 30]))
+```
+
+## 13. Difference Between a Module and a Package
+
+| Module | Package |
+|---|---|
+| A Python module is a unit of code, commonly stored in a `.py` file. | A package organizes modules into a hierarchy. |
+| Contains functions, classes and variables. | Can contain modules and subpackages. |
+| Example: `calculator.py` | Example: `mypackage/` |
+
+## 14. Important Interview Questions
+
+**Q1. What is a module in Python?**
+
+A module is a Python file containing functions, classes, variables and statements that can be reused in other programs.
+
+**Q2. How do you import a module?**
+
+Using the `import` statement.
 
 ```python
 import math
-
-number = 144
-
-print("Square root:", math.sqrt(number))
 ```
 
-### Program 2: Generate Random Numbers
+**Q3. What is the difference between `import` and `from import`?**
 
-```python
-import random
+`import` imports the module, while `from ... import ...` imports specific names from that module.
 
-number = random.randint(1, 100)
+**Q4. What is an alias in Python?**
 
-print("Random number:", number)
-```
+An alias is an alternative name given to a module or imported name using the `as` keyword.
 
-### Program 3: Display Current Date and Time
+**Q5. What is `__name__`?**
 
-```python
-import datetime
+It is a special variable that identifies the module's name. When a file is executed as the top-level program, its value is `"__main__"`.
 
-current_date = datetime.datetime.now()
+**Q6. Why do we use `if __name__ == "__main__"`?**
 
-print(current_date)
-```
+To execute a block of code only when the file is run directly, not when it is imported.
 
-### Program 4: Create a User-Defined Module
+**Q7. What is a package?**
 
-File: `greeting.py`
+A package is a way to organize related modules into a hierarchical structure.
 
-```python
-def greet(name):
-    print("Hello", name)
-```
+**Q8. What is pip?**
 
-File: `main.py`
+Pip is the package installer for Python. It is used to install and manage Python packages.
 
-```python
-import greeting
+**Q9. What is the difference between a standard library module and a third-party package?**
 
-greeting.greet("Pratiksha")
-```
+Standard library modules are provided with Python. Third-party packages are developed separately and are generally installed when needed.
 
-Output:
+**Q10. What happens when a module is imported?**
 
-```text
-Hello Pratiksha
-```
+Python searches for the module, initializes it, executes its top-level code on its first import, and makes it available to the importing code.
 
----
-
-## 13. Quick Revision
+## 15. Quick Revision
 
 | Concept | Meaning |
 |---|---|
-| Module | Python file containing reusable code |
-| Built-in module | Module provided by Python |
-| User-defined module | Module created by the programmer |
-| Third-party module | Module developed externally |
-| import | Imports a module |
-| from...import | Imports selected names |
-| as | Creates an alias |
-| dir() | Displays available names |
-| help() | Displays documentation |
-| pip | Python package installer |
-| __name__ | Special variable containing module name |
-| __pycache__ | Folder containing cached bytecode files |
+| Module | Python file containing code |
+| `import` | Imports a module |
+| `from ... import` | Imports specific names |
+| `as` | Creates an alias |
+| Standard library | Modules provided with Python |
+| User-defined module | Module created by a programmer |
+| Third-party package | Package developed outside the standard library |
+| `__name__` | Special module variable |
+| `__main__` | Name used for the top-level program |
+| Package | Organizes modules |
+| `pip` | Python package installer |
+| `sys.modules` | Keeps track of imported modules |
 
+##  References
+
+1. Python Official Tutorial – Modules: https://docs.python.org/3/tutorial/modules.html
+2. Python Official Documentation – `__main__`: https://docs.python.org/3/library/__main__.html
+3. Python Official Documentation – The Import System: https://docs.python.org/3/reference/import.html
+4. Python Official Documentation – `sys.modules`: https://docs.python.org/3/library/sys.html
+5. Python Packaging User Guide – Installing Packages: https://packaging.python.org/en/latest/tutorials/installing-packages/
