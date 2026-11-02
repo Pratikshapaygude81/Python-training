@@ -295,49 +295,7 @@ with open("geek.txt", "w") as file:
     file.writelines(lines)
 ```
 
-## 12. Important Interview Questions
-
-**Q1. What is file handling in Python?**
-
-File handling is the process of creating, opening, reading, writing, and closing files using Python.
-
-**Q2. Which function is used to open a file?**
-
-The built-in `open()` function.
-
-**Q3. What is the default file mode?**
-
-The default mode is `r` (read mode).
-
-**Q4. What is the difference between `w` and `a` mode?**
-
-`w` overwrites existing content, whereas `a` adds new content at the end.
-
-**Q5. Why do we use `close()`?**
-
-To close the file and release system resources.
-
-**Q6. What is the advantage of the `with` statement?**
-
-It automatically closes the file after the block finishes.
-
-**Q7. What is FileNotFoundError?**
-
-It is an exception raised when Python cannot find the requested file.
-
-**Q8. What is the difference between `read()` and `readline()`?**
-
-`read()` reads the entire file or a specified number of characters, while `readline()` reads one line.
-
-**Q9. What is the difference between `readline()` and `readlines()`?**
-
-`readline()` returns one line, whereas `readlines()` returns all lines as a list.
-
-**Q10. What is appending?**
-
-Appending means adding new content at the end of an existing file without removing its previous content.
-
-## 13. Quick Revision
+## 12. Quick Revision
 
 | Concept | Meaning |
 |---|---|
@@ -355,9 +313,4 @@ Appending means adding new content at the end of an existing file without removi
 | `with` | Automatically manages file closing |
 | `try-except` | Handles file-related exceptions |
 
-## 14. References
 
-1. Python Official Tutorial – Reading and Writing Files: https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
-2. Python Official Documentation – `open()`: https://docs.python.org/3/library/functions.html#open
-3. Python Official Documentation – File Objects: https://docs.python.org/3/glossary.html#term-file-object
-4. Python Official Tutorial – Errors and Exceptions: https://docs.python.org/3/tutorial/errors.html
