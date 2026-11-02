@@ -1,6 +1,6 @@
-Reference- GeeksforGeeks
+*Reference- GeeksforGeeks*
 
-Context Manager in Python
+##Context Manager in Python
 
 In any programming language, usage of resources like file operations or database connections is very common, but limited. Therefore, main problem lies in making sure to release these resources after usage. If they are not released then it will lead to resource leakage and may cause system to either slow down or crash.
 Python’s context managers provide a neat way to automatically set up and clean up resources, ensuring they’re properly managed even if errors occur.
