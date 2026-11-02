@@ -1,84 +1,64 @@
 # Python Advanced Roadmap
 
-## 1. Advanced Functions
-- Lambda Functions
-- Map, Filter and Reduce
-- *args and **kwargs
-- Recursion
-- Nested Functions
-- Closures
-
-## 2. Iterators and Generators
-- Iterators
-- Iterable vs Iterator
-- Creating Custom Iterators
-- Generator Functions
-- Yield Keyword
-- Generator Expressions
-
-## 3. Python Decorators
+## 1. Python Decorators
 - Introduction to Decorators
 - Functions as First-Class Objects
 - Nested Functions
+- Understanding Closures
 - Creating Custom Decorators
+- Using the `@` Decorator Syntax
 - Decorators with Arguments
 - Multiple Decorators
+- Practical Applications of Decorators
 
-## 4. Advanced Data Structures
-- List Comprehensions
-- Dictionary Comprehensions
-- Set Comprehensions
-- Tuple Operations
-- Collections Module
-- Stack and Queue
+## 2. Iterators and Generators
+- Introduction to Iterators
+- Iterable vs Iterator
+- Understanding `iter()` and `next()`
+- Creating Custom Iterators
+- Introduction to Generators
+- Generator Functions
+- Understanding the `yield` Keyword
+- Generator Expressions
+- Advantages of Generators
+- Practical Applications of Iterators and Generators
 
-## 5. Object-Oriented Programming (Advanced)
-- Inheritance
-- Multiple Inheritance
-- Method Overriding
-- Polymorphism
-- Encapsulation
-- Abstraction
-- Class Methods and Static Methods
-- Magic (Dunder) Methods
+## 3. Context Managers
+- Introduction to Context Managers
+- Understanding the `with` Statement
+- Resource Management
+- Creating Custom Context Managers
+- Using `__enter__()` and `__exit__()` Methods
+- Context Managers Using Classes
+- Context Managers Using `contextlib`
+- Exception Handling in Context Managers
+- Practical Applications of Context Managers
 
-## 6. Exception Handling
-- Exception Handling Best Practices
-- Custom Exceptions
-- Raising Exceptions
-- Try, Except, Else and Finally
+## 4. Multithreading
+- Introduction to Concurrency
+- Process vs Thread
+- Introduction to Multithreading
+- Understanding the Thread Class
+- Creating and Running Threads
+- Thread Lifecycle
+- Thread Synchronization
+- Locks and RLocks
+- Race Conditions
+- Thread Communication
+- Introduction to ThreadPoolExecutor
+- Practical Applications of Multithreading
 
-## 7. File Handling
-- Reading and Writing Files
-- Working with CSV and JSON
-- Context Managers
-- With Statement
-
-## 8. Modules and Packages
-- Creating Custom Modules
-- Python Packages
-- Importing Modules
+## 5. Python Packages and Modules
+- Introduction to Modules
+- Creating and Importing Modules
+- Built-in Modules
+- User-Defined Modules
+- Introduction to Packages
+- Creating Python Packages
+- Understanding `__init__.py`
+- Absolute and Relative Imports
+- Python Package Management
+- Installing Packages Using `pip`
 - Virtual Environments
-- pip and Package Management
-
-## 9. Regular Expressions
-- Introduction to Regex
-- Regex Patterns
-- re Module
-- Search, Match and Findall
-
-## 10. Advanced Python Concepts
-- Shallow Copy and Deep Copy
-- Memory Management
-- Garbage Collection
-- Multithreading
-- Multiprocessing
-- Asynchronous Programming
-- Async and Await
-
-## 11. Testing and Debugging
-- Python Debugging
-- Logging
-- Unit Testing
-- Introduction to pytest
+- Understanding `requirements.txt`
 
